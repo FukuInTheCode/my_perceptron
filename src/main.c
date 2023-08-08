@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
 
     printf("%u, %u\n", P.theta.m, P.theta.n);
 
-    my_Matrix_Print(1, &(P.theta));
+    my_Perceptron_Free(1, &P);
 
     return 0;
 }
