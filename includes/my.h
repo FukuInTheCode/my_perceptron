@@ -8,4 +8,4 @@
 #include "my_math.h"
 #include "my_perceptron.h"
 
-#define SWAP(A, B) A ^= B ^= A ^= B;
+#define SWAP(A, B)  double temp = minN; minN = maxN; maxN = temp;

@@ -26,10 +26,12 @@ int my_randInt(int minN, int maxN) {
     return rand() % (maxN - minN) + minN;
 }
 
-float my_randFloat(float minN, float maxN) {
+double my_randFloat(double minN, double maxN) {
     maxN++;
     if(minN>maxN) {
         SWAP(minN, maxN)
     }
-    return rand() % (maxN - minN) + minN;
+    double range = (maxN - minN); 
+    double div = RAND_MAX / range;
+    return minN + (rand() / div);
 }
