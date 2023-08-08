@@ -1,9 +1,9 @@
 #include "../../includes/my.h"
 
 void __CreatePerceptron(my_Perceptron *P, const unsigned int inputsSize) {
-    my_Matrix_Create(inputsSize, 1, 1, &(entity->theta));
-    my_Matrix_RandFloat(-1, 1, 1, &(entity->theta));
-    entity->bias = my_randFloat(-1, 1);
+    my_Matrix_Create(inputsSize, 1, 1, &(P->theta));
+    my_Matrix_RandFloat(-1, 1, 1, &(P->theta));
+    P->bias = my_randFloat(-1, 1);
 }
 
 void my_Perceptron_Create(const unsigned int inputsSize, const unsigned int count, ...) {

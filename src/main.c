@@ -5,9 +5,7 @@ int main(int argc, char* argv[]) {
 
     my_Perceptron P = {.theta.m = 0, .theta.n = 0};
 
-    my_Perceptron_Create(&P, 2);
-
-    printf("%u, %u\n", P.theta.m, P.theta.n);
+    my_Perceptron_Create(2, 1, &P);
 
     my_Perceptron_Free(1, &P);
 
