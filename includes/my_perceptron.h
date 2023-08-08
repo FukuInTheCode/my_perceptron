@@ -6,4 +6,4 @@ typedef struct my_Perceptron {
     double bias;
 } my_Perceptron;
 
-double my_Perceptron_calcError(my_Perceptron *entity, my_Matrix *inputs, my_Matrix *targets);
+void my_Perceptron_Create(my_Perceptron *entity, const unsigned int inputsSize);
