@@ -24,7 +24,7 @@ void __Product(my_Matrix* A, my_Matrix* B, my_Matrix* result) {
         for(j=0;j<result->n; j++) {
             double column[B->m];
             my_Matrix_GetColumn(B, j, column);
-            my_Matrix_Set(result, i, j, dot_product(row, column, A->n));
+            my_Matrix_Set(result, j, i, dot_product(row, column, A->n));
         }
     } 
 }
