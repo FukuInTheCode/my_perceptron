@@ -1,4 +1,4 @@
-NAME = TBD
+NAME = my_Perceptron
 
 CFLAGS = -W -Wall -Wextra
 
