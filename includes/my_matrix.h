@@ -7,6 +7,8 @@ typedef struct my_Matrix {
     double **arr;
 } my_Matrix;
 
+typedef double (*UnaryFunction)(double);
+
 void my_Matrix_Create(unsigned int m, unsigned int n, const unsigned int count, ...);
 void my_Matrix_Identity(const unsigned int count, ...);
 void my_Matrix_Set(my_Matrix* A, unsigned int x, unsigned int y, double n);
@@ -27,3 +29,4 @@ void my_Matrix_GetSubMatrix(my_Matrix *A, const unsigned int m, const unsigned i
 void my_Matrix_Adjugate(my_Matrix *A, my_Matrix *result);
 void my_Matrix_Inverse(my_Matrix *A, my_Matrix *result);
 void my_Matrix_AddScalar(my_Matrix* A, double scalar, my_Matrix* result);
+void my_Matrix_ApplyFunc(my_Matrix *A, UnaryFunction func, my_Matrix *result);
