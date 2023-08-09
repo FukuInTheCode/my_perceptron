@@ -23,7 +23,7 @@ double my_Perceptron_calcError(my_Perceptron *P, my_Matrix *inputs, my_Matrix *t
     
     double res = my_Matrix_Sum(&differenceSquared);
 
-    res /= inputs->m;
+    res /= inputs->m * 2;
 
     my_Matrix_Free(4, &Prediction, &difference, &NegTargets, &differenceSquared);
 
