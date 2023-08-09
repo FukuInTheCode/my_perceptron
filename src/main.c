@@ -7,6 +7,8 @@ int main(int argc, char* argv[]) {
 
     my_Perceptron_Create(2, 1, &P);
 
+    my_Perceptron_Print(&P);
+
     my_Perceptron_Free(1, &P);
 
     return 0;
