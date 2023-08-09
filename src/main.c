@@ -25,7 +25,9 @@ int main(int argc, char* argv[]) {
 
     my_Matrix_Print(3, &features, &needed, &targets);
 
-    my_Perceptron_calcError(&P, &features, &targets);
+    printf("Error: %f\n", my_Perceptron_calcError(&P, &features, &targets));
+
+    my_Perceptron_Print(1, &P);
 
     my_Perceptron_Free(1, &P);
 
