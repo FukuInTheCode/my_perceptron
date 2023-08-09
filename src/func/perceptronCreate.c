@@ -14,4 +14,5 @@ void my_Perceptron_Create(const unsigned int inputsSize, const unsigned int coun
         my_Perceptron *P = va_arg(args, my_Perceptron *);
         __CreatePerceptron(P, inputsSize);
     }
+    va_end(args);
 }

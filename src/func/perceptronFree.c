@@ -12,4 +12,5 @@ void my_Perceptron_Free(const unsigned int count, ...) {
         my_Perceptron *P = va_arg(args, my_Perceptron *);
         __FreePerceptron(P);
     }
+    va_end(args);
 }
