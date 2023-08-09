@@ -30,3 +30,4 @@ void my_Matrix_Adjugate(my_Matrix *A, my_Matrix *result);
 void my_Matrix_Inverse(my_Matrix *A, my_Matrix *result);
 void my_Matrix_AddScalar(my_Matrix* A, double scalar, my_Matrix* result);
 void my_Matrix_ApplyFunc(my_Matrix *A, UnaryFunction func, my_Matrix *result);
+double my_Matrix_Sum(my_Matrix *A);

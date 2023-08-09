@@ -25,11 +25,7 @@ int main(int argc, char* argv[]) {
 
     my_Matrix_Print(3, &features, &needed, &targets);
 
-    my_Perceptron_Print(1, &P);
-
-    my_Perceptron_Predict(&P, &features, &prediction);
-
-    my_Matrix_Print(1, &prediction);
+    my_Perceptron_calcError(&P, &features, &targets);
 
     my_Perceptron_Free(1, &P);
 
