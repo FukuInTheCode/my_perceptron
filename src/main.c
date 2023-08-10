@@ -1,11 +1,15 @@
 #include "../includes/my.h"
 
+double __mysq(double x) {
+    return x + 1;
+}
+
 int main(int argc, char* argv[]) {
     srand(time(NULL));
 
     my_Perceptron P = {.theta.m = 0, .theta.n = 0};
-    my_Matrix targets = {.m = 0, .n = 0};
     my_Matrix features = {.m = 0, .n = 0};
+    my_Matrix targets = {.m = 0, .n = 0};
     my_Matrix needed = {.m=0, .n=0};
     my_Matrix prediction = {.m=0, .n=0};
 
@@ -14,18 +18,27 @@ int main(int argc, char* argv[]) {
     my_Matrix_Create(10, 2, 1, &features);
     my_Matrix_RandInt(0, 20, 1, &features);
 
-    // my_Matrix_Set(&features, 0, 0, 0);
-    // my_Matrix_Set(&features, 1, 0, 0);
-
     my_Matrix_Create(2, 1, 1, &needed);
     my_Matrix_Set(&needed, 0, 0, 1);
-    my_Matrix_Set(&needed, 0, 1, 1);
+    my_Matrix_Set(&needed, 0, 1, 2);
 
     my_Matrix_Product(&targets, 2, &features, &needed);
 
-    my_Matrix_Print(3, &features, &needed, &targets);
+    my_Perceptron_Predict(&P, &features, &prediction);
 
-    printf("Error: %f\n", my_Perceptron_calcError(&P, &features, &targets));
+    my_Matrix_Print(4, &features, &needed, &targets, &prediction);
+
+    printf("starting Error: %f\n", my_Perceptron_calcError(&P, &features, &targets));
+
+    my_Perceptron_Print(1, &P);
+
+    my_Perceptron_Train(&P, &features, &targets, 0.001, 1000);
+    printf("Trained!\n");
+
+    printf("finished Error: %f\n", my_Perceptron_calcError(&P, &features, &targets));
+    my_Perceptron_Predict(&P, &features, &prediction);
+
+    my_Matrix_Print(1, &prediction);
 
     my_Perceptron_Print(1, &P);
 
