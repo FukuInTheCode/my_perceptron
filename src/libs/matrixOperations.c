@@ -1,5 +1,6 @@
 #include "../../includes/my.h"
 
+
 void my_Matrix_T(my_Matrix* A, my_Matrix* T) {
     my_Matrix_Create(A->n, A->m, 1, T);
     unsigned int i, j;
