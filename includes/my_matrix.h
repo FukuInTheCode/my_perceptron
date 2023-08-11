@@ -39,3 +39,5 @@ void my_Matrix_AddRow(my_Matrix *A, const unsigned int m, my_Matrix *result);
 void my_Matrix_ConcatCol(my_Matrix *result, my_Matrix *A, my_Matrix *B);
 void my_Matrix_ConcatRow(my_Matrix *result, my_Matrix *A, my_Matrix *B);
 int my_Matrix_Equals(my_Matrix *A, my_Matrix *B);
+void my_Matrix_SwapRow(my_Matrix *A, const unsigned int a, const unsigned int b, my_Matrix *result);
+void my_Matrix_SwapCol(my_Matrix *A, const unsigned int a, const unsigned int b, my_Matrix *result);
