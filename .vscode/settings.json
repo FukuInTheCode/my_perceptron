@@ -4,6 +4,9 @@
         "my.h": "c",
         "perceptronPredict.C": "cpp",
         "perceptronGrad.C": "cpp",
-        "my_perceptron.h": "c"
+        "my_perceptron.h": "c",
+        "time.h": "c",
+        "my_matrix.h": "c",
+        "my_math.h": "c"
     }
 }

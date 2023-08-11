@@ -5,7 +5,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include "my_matrix.h"
+#include "my_perceptron.h"
 
 #define SWAP(A, B)  double temp = A; A = B; B = temp;
 
