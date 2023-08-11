@@ -7,7 +7,7 @@
 #include <stdarg.h>
 #include "my_matrix.h"
 
-#define SWAP(A, B)  double temp = minN; minN = maxN; maxN = temp;
+#define SWAP(A, B)  double temp = A; A = B; B = temp;
 
 #define FALSE 0
 #define TRUE 1
