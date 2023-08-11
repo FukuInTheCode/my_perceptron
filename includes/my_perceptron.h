@@ -1,6 +1,8 @@
 #pragma once
 #define MYPERCEPTRONH
 
+#include "./my_matrix.h"
+
 typedef struct my_Perceptron {
     my_Matrix theta;
     double bias;

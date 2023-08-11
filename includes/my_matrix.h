@@ -1,6 +1,8 @@
 #pragma once
 #define MYMATRIXH
 
+#include "./my_math.h"
+
 typedef struct my_Matrix {
     unsigned int m;
     unsigned int n;
