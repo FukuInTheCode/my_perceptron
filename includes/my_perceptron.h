@@ -3,6 +3,19 @@
 
 #include "./my_matrix.h"
 
+typedef double (*ErrorTemplate)(my_Perceptron *, my_Matrix *, my_Matrix *);
+typedef void (*GradTemplate)(my_Perceptron *, my_Matrix *, my_Matrix *, my_Matrix *);
+typedef void (*PredictTemplate)(my_Perceptron *, my_Matrix *, my_Matrix *);
+
+typedef struct my_Model {
+    my_Matrix theta;
+    ErrorTemplate;
+    GradTemplate;
+
+    
+
+}
+
 typedef struct my_Perceptron {
     my_Matrix theta;
     double bias;
