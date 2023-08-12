@@ -17,28 +17,7 @@ int main(int argc, char* argv[]) {
     my_Perceptron_Create(2, 1, &P);
     
     my_Matrix_Create(10, 2, 1, &features);
-    // my_Matrix_RandInt(0, 20, 1, &features);
-
-    my_Matrix_Set(&features, 0, 0, 2.000000);
-    my_Matrix_Set(&features, 1, 0, 3.000000);
-    my_Matrix_Set(&features, 0, 1, 4.000000);
-    my_Matrix_Set(&features, 1, 1, 1.000000);
-    my_Matrix_Set(&features, 0, 2, 3.000000);
-    my_Matrix_Set(&features, 1, 2, 1.000000);
-    my_Matrix_Set(&features, 0, 3, 7.000000);
-    my_Matrix_Set(&features, 1, 3, 9.000000);
-    my_Matrix_Set(&features, 0, 4, 1.000000);
-    my_Matrix_Set(&features, 1, 4, 18.000000);
-    my_Matrix_Set(&features, 0, 5, 10.000000);
-    my_Matrix_Set(&features, 1, 5, 20.000000);
-    my_Matrix_Set(&features, 0, 6, 1.000000);
-    my_Matrix_Set(&features, 1, 6, 15.000000);
-    my_Matrix_Set(&features, 0, 7, 14.000000);
-    my_Matrix_Set(&features, 1, 7, 3.000000);
-    my_Matrix_Set(&features, 0, 8, 3.000000);
-    my_Matrix_Set(&features, 1, 8, 2.000000);
-    my_Matrix_Set(&features, 0, 9, 20.000000);
-    my_Matrix_Set(&features, 1, 9, 9.000000);
+    my_Matrix_RandInt(0, 20, 1, &features);
 
     my_Matrix_Create(2, 1, 1, &needed);
     my_Matrix_Set(&needed, 0, 0, 1);
@@ -46,19 +25,15 @@ int main(int argc, char* argv[]) {
 
     my_Matrix_Product(&targets, 2, &features, &needed);
 
-    my_Matrix_Set(&(P.theta), 0, 0, 0.5);
-    my_Matrix_Set(&(P.theta), 0, 1, 0.5);
-    P.bias = 0.5;
-
     my_Perceptron_Predict(&P, &features, &prediction);
-    
+
     my_Matrix_Print(4, &features, &needed, &targets, &prediction);
 
     printf("starting Error: %f\n", my_Perceptron_calcErrorMSE(&P, &features, &targets));
 
     my_Perceptron_Print(1, &P);
 
-    my_Perceptron_Train(&P, &features, &targets, 0.001, 1000);
+    my_Perceptron_Train(&P, &features, &targets, 0.0005, 10000);
     printf("Trained!\n");
 
     printf("finished Error: %f\n", my_Perceptron_calcErrorMSE(&P, &features, &targets));

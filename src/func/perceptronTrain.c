@@ -18,7 +18,7 @@ void my_Perceptron_Train(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets
 
         my_Matrix_Add(&newTheta, 2, &(P->theta), &GradThetaAlpha);
 
-        P->bias = P->bias + gradBias;
+        P->bias = P->bias - gradBias;
 
         my_Matrix_Copy(&newTheta, &(P->theta));
 
