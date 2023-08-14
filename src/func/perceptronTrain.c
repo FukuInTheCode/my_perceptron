@@ -9,11 +9,12 @@ void my_Perceptron_Train(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets
 
     unsigned int i;
     for(i=0; i<stepsN; i++) {
-        my_Perceptron_GradTheta(P, inputs, targets, &GradTheta);
+        if(P->errorFunc(P, inputs, targets) < 0.00000001) break;
+        P->gradThetaFunc(P, inputs, targets, &GradTheta);
     
         my_Matrix_MultiplyByScalar(&GradTheta, -1 * alpha, &GradThetaAlpha);
  
-        gradBias = my_Perceptron_GradBias(P, inputs, targets);
+        gradBias = P->gradBiasFunc(P, inputs, targets);
         gradBias *= alpha;
 
         my_Matrix_Add(&newTheta, 2, &(P->theta), &GradThetaAlpha);
@@ -23,6 +24,6 @@ void my_Perceptron_Train(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets
         my_Matrix_Copy(&newTheta, &(P->theta));
 
     }
-
+    printf("took %d iterations\n", i++);
     my_Matrix_Free(3, &GradTheta, &GradThetaAlpha, &newTheta);
 }
