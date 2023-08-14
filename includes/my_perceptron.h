@@ -3,25 +3,21 @@
 
 #include "./my_matrix.h"
 
-// typedef double (*ErrorTemplate)(my_Perceptron *, my_Matrix *, my_Matrix *);
-// typedef void (*GradTemplate)(my_Perceptron *, my_Matrix *, my_Matrix *, my_Matrix *);
-// typedef void (*PredictTemplate)(my_Perceptron *, my_Matrix *, my_Matrix *);
+typedef struct my_Perceptron my_Perceptron;
 
-// typedef struct my_Model {
-//     my_Matrix theta;
-//     ErrorTemplate;
-//     GradTemplate;
-
-    
-
-// }
+typedef double (*ErrorTemplate)(my_Perceptron *, my_Matrix *, my_Matrix *);
+typedef void (*GradThetaTemplate)(my_Perceptron *, my_Matrix *, my_Matrix *, my_Matrix *);
+typedef double (*GradBiasTemplate)(my_Perceptron *, my_Matrix *, my_Matrix *);
 
 typedef struct my_Perceptron {
+    ErrorTemplate errorFunc;
+    GradThetaTemplate gradThetaFunc;
+    GradBiasTemplate gradBiasFunc;
     my_Matrix theta;
     double bias;
 } my_Perceptron;
 
-void my_Perceptron_Create(const unsigned int inputsSize, const unsigned int count, ...);
+void my_Perceptron_Create(const unsigned int inputsSize, ErrorTemplate errorFunc, GradThetaTemplate gradThetaFunc, GradBiasTemplate gradBiasFunc, const unsigned int count, ...);
 void my_Perceptron_Free(const unsigned int count, ...);
 void my_Perceptron_Print(const unsigned int count, ...);
 void my_Perceptron_Predict(my_Perceptron *P, my_Matrix *inputs, my_Matrix *predictions);
