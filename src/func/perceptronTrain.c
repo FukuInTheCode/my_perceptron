@@ -1,7 +1,7 @@
 #include "../../includes/my.h"
 
 void my_Perceptron_Train(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets, const
- double alpha, const unsigned int stepsN) {
+ double alpha, const unsigned int stepsN, const double treshold) {
     my_Matrix GradTheta = {.m=0, .n=0};
     my_Matrix GradThetaAlpha = {.m=0, .n=0};
     my_Matrix newTheta = {.m=0, .n=0};
@@ -9,7 +9,7 @@ void my_Perceptron_Train(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets
 
     unsigned int i;
     for(i=0; i<stepsN; i++) {
-        if(P->errorFunc(P, inputs, targets) < 0.00000001) break;
+        if(P->errorFunc(P, inputs, targets) < treshold) break;
         P->gradThetaFunc(P, inputs, targets, &GradTheta);
     
         my_Matrix_MultiplyByScalar(&GradTheta, -1 * alpha, &GradThetaAlpha);

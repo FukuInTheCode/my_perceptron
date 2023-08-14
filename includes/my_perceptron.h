@@ -23,5 +23,5 @@ void my_Perceptron_Print(const unsigned int count, ...);
 void my_Perceptron_Predict(my_Perceptron *P, my_Matrix *inputs, my_Matrix *predictions);
 double my_Perceptron_calcErrorMSE(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets);
 void my_Perceptron_GradTheta(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets, my_Matrix *result);
-void my_Perceptron_Train(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets, const double alpha, const unsigned int stepsN);
+void my_Perceptron_Train(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets, const double alpha, const unsigned int stepsN, const double treshold);
 double my_Perceptron_GradBias(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets);
