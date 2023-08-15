@@ -12,8 +12,8 @@ int main(int argc, char* argv[]) {
     my_Matrix prediction = {.m = 0, .n =0};
     my_Matrix needed = {.m = 0, .n =0};
 
-    my_Matrix_Create(100, 2, 1, &features);
-    my_Matrix_Create(100, 1, 1, &targets);
+    my_Matrix_Create(10, 2, 1, &features);
+    my_Matrix_Create(10, 1, 1, &targets);
     my_Matrix_Create(2, 1, 1, &needed);
     my_Matrix_RandInt(0, 5, 1, &features);
 
@@ -42,6 +42,7 @@ int main(int argc, char* argv[]) {
     my_Matrix_Print(1, &prediction);
 
     my_Perceptron_Print(1, &P);
+
 
     my_Perceptron_Free(1, &P);
 
