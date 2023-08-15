@@ -42,9 +42,29 @@ int main(int argc, char* argv[]) {
     my_Matrix_Print(1, &prediction);
 
     my_Perceptron_Print(1, &P);
+    printf("----------------------------------------\n");
+    printf("----------------------------------------\n");
+    printf("----------------------------------------\n");
+    my_Perceptron P2 = {.theta.m = 0, .theta.n = 0};
 
+    my_Perceptron_Create(2, my_Perceptron_calcErrorL1, my_Perceptron_GradTheta, my_Perceptron_GradBias, 1, &P2);
+    my_Perceptron_Print(1, &P2);
 
-    my_Perceptron_Free(1, &P);
+    printf("Error:%f\n", P2.errorFunc(&P2, &features, &targets));
+    my_Perceptron_Predict(&P2, &features, &prediction);
+    my_Matrix_Print(1, &prediction);
+
+    my_Perceptron_Train(&P2, &features, &targets, 0.001, 100000, 0.00000001);
+    
+    printf("Training completed!\n");
+
+    printf("Error:%f\n", P2.errorFunc(&P2, &features, &targets));
+    my_Perceptron_Predict(&P2, &features, &prediction);
+    my_Matrix_Print(1, &prediction);
+
+    my_Perceptron_Print(1, &P2);
+
+    my_Perceptron_Free(2, &P, &P2);
 
     my_Matrix_Free(3, &features, &targets, &prediction);
 

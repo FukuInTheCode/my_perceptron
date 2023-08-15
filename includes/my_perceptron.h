@@ -25,3 +25,4 @@ double my_Perceptron_calcErrorMSE(my_Perceptron *P, my_Matrix *inputs, my_Matrix
 void my_Perceptron_GradTheta(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets, my_Matrix *result);
 void my_Perceptron_Train(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets, const double alpha, const unsigned int stepsN, const double treshold);
 double my_Perceptron_GradBias(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets);
+double my_Perceptron_calcErrorL1(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets);
