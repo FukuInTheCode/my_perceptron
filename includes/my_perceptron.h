@@ -16,6 +16,8 @@ typedef struct my_perceptron {
     GradBiasTemplate gradBiasFunc;
     my_Matrix theta;
     double bias;
+    uint16_t inputs_size;
+    uint16_t outputs_size;
 } my_perceptron_t;
 
 typedef struct my_percep_funcs {
@@ -24,7 +26,7 @@ typedef struct my_percep_funcs {
     GradBiasTemplate gradBiasFunc;
 } my_percep_funcs_t;
 
-void my_Perceptron_Create(const unsigned int inputsSize, const unsigned int outputsSize, ErrorTemplate errorFunc, GradThetaTemplate gradThetaFunc, GradBiasTemplate gradBiasFunc, const unsigned int count, ...);
+void my_perceptron_create(const unsigned int inputsSize, const unsigned int outputsSize, ErrorTemplate errorFunc, GradThetaTemplate gradThetaFunc, GradBiasTemplate gradBiasFunc, const unsigned int count, ...);
 void my_Perceptron_Free(const unsigned int count, ...);
 void my_Perceptron_Print(const unsigned int count, ...);
 void my_Perceptron_Predict(my_perceptron_t *P, my_Matrix *inputs, my_Matrix *predictions);
