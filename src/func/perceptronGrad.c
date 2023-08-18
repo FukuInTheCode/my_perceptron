@@ -1,6 +1,6 @@
 #include "../../includes/my.h"
 
-void my_Perceptron_GradTheta(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets, my_Matrix *result) {
+void my_Perceptron_GradTheta(my_perceptron_t *P, my_Matrix *inputs, my_Matrix *targets, my_Matrix *result) {
     my_Matrix prediction = {.m=0, .n=0};
     my_Perceptron_Predict(P, inputs, &prediction);
 
@@ -21,7 +21,7 @@ void my_Perceptron_GradTheta(my_Perceptron *P, my_Matrix *inputs, my_Matrix *tar
     my_Matrix_Free(5, &inputsT, &prediction, &difference, &negTargets, &notMean);
 }
 
-double my_Perceptron_GradBias(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets) {
+double my_Perceptron_GradBias(my_perceptron_t *P, my_Matrix *inputs, my_Matrix *targets) {
     my_Matrix prediction = {.m=0, .n=0};
     my_Perceptron_Predict(P, inputs, &prediction);
 

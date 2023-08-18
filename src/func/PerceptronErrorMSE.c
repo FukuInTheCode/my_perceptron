@@ -4,7 +4,7 @@ double __square(double x) {
     return x * x;
 }
 
-double my_Perceptron_calcErrorMSE(my_Perceptron *P, my_Matrix *inputs, my_Matrix *targets) {
+double my_Perceptron_calcErrorMSE(my_perceptron_t *P, my_Matrix *inputs, my_Matrix *targets) {
     my_Matrix Prediction = {.m=0, .n=0};
     my_Perceptron_Predict(P, inputs, &Prediction);
 
