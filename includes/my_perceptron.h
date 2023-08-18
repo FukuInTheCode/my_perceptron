@@ -31,8 +31,9 @@ typedef struct my_percep_funcs {
 void my_perceptron_create(my_percep_funcs_t *funcs, \
             const unsigned int count, ...);
 void my_perceptron_free(const unsigned int count, ...);
-void my_perceptron_print(const unsigned int count, ...)
-void my_Perceptron_Predict(my_perceptron_t *P, my_matrix_t *inputs, my_matrix_t *predictions);
+void my_perceptron_print(const unsigned int count, ...);
+void my_perceptron_predict(my_perceptron_t *P, my_matrix_t *inputs, \
+                                my_matrix_t *predictions);
 double my_Perceptron_calcErrorMSE(my_perceptron_t *P, my_matrix_t *inputs, my_matrix_t *targets);
 void my_Perceptron_GradTheta(my_perceptron_t *P, my_matrix_t *inputs, my_matrix_t *targets, my_matrix_t *result);
 void my_Perceptron_Train(my_perceptron_t *P, my_matrix_t *inputs, my_matrix_t *targets, const double alpha, const unsigned int stepsN, const double treshold);
