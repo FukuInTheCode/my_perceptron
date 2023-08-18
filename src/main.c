@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
 
     my_perceptron_t P = {.theta.m = 0, .theta.n = 0};
 
-    my_Perceptron_Create(features.n, targets.n, my_Perceptron_calcErrorMSE, my_Perceptron_GradTheta, my_Perceptron_GradBias, 1, &P);
+    my_perceptron_create(features.n, targets.n, my_Perceptron_calcErrorMSE, my_Perceptron_GradTheta, my_Perceptron_GradBias, 1, &P);
     my_Perceptron_Print(1, &P);
 
     printf("Error:%f\n", P.errorFunc(&P, &features, &targets));
