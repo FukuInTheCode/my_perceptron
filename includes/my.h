@@ -6,8 +6,3 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include "my_perceptron.h"
-
-#define SWAP(A, B)  double temp = A; A = B; B = temp;
-
-#define FALSE 0
-#define TRUE 1
