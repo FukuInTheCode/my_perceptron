@@ -2,9 +2,9 @@
 
 static void create_preceptron(my_perceptron_t *P, my_percep_funcs_t *funcs)
 {
-    my_Matrix_Create(P->inputs_size, P->outputs_size, 1, &(P->theta));
-    my_Matrix_RandFloat(-1, 1, 1, &(P->theta));
-    P->bias = my_randFloat(-1, 1);
+    my_matrix_create(P->inputs_size, P->outputs_size, 1, &(P->theta));
+    my_matrix_randfloat(-1, 1, 1, &(P->theta));
+    P->bias = my_randfloat(-1, 1);
     P->errorFunc = funcs->errorFunc;
     P->gradThetaFunc = funcs->gradThetaFunc;
     P->gradBiasFunc = funcs->gradBiasFunc;

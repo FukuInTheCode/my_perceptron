@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
 
     my_Perceptron_Print(1, &P);
 
-    my_Perceptron_Free(1, &P);
+    my_perceptron_free(1, &P);
 
     my_Matrix_Free(3, &features, &targets, &prediction);
 
