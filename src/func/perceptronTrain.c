@@ -12,12 +12,12 @@ void my_Perceptron_Train(my_perceptron_t *P, my_matrix_t *inputs, my_matrix_t *t
         if(P->errorFunc(P, inputs, targets) < treshold) break;
         P->gradThetaFunc(P, inputs, targets, &GradTheta);
 
-        my_Matrix_MultiplyByScalar(&GradTheta, -1 * alpha, &GradThetaAlpha);
+        my_matrix_multiplybyscalar(&GradTheta, -1 * alpha, &GradThetaAlpha);
 
         gradBias = P->gradBiasFunc(P, inputs, targets);
         gradBias *= alpha;
 
-        my_Matrix_Add(&newTheta, 2, &(P->theta), &GradThetaAlpha);
+        my_matrix_add(&newTheta, 2, &(P->theta), &GradThetaAlpha);
 
         P->bias = P->bias - gradBias;
 
@@ -25,5 +25,5 @@ void my_Perceptron_Train(my_perceptron_t *P, my_matrix_t *inputs, my_matrix_t *t
 
     }
     printf("took %d iterations\n", i++);
-    my_Matrix_Free(3, &GradTheta, &GradThetaAlpha, &newTheta);
+    my_matrix_free(3, &GradTheta, &GradThetaAlpha, &newTheta);
 }

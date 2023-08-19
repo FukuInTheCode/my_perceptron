@@ -18,7 +18,7 @@ double my_perceptron_calcerror_l1(my_perceptron_t *P, my_matrix_t *inputs, \
     double res = my_matrix_sum(&absolute_difference);
     res /= inputs->m;
 
-    my_Matrix_Free(4, &prediction, &difference, \
+    my_matrix_free(4, &prediction, &difference, \
         &neg_targets, &absolute_difference);
 
     return res;

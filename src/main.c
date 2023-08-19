@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
     unsigned int i;
     for(i=0; i<targets.m; i++) my_Matrix_Set(&targets, 0, i, my_gcd(features.arr[i][0], features.arr[i][1]));
 
-    // my_Matrix_Product(&targets, 2, &features, &needed);
+    // my_matrix_product(&targets, 2, &features, &needed);
 
     my_Matrix_Print(3, &features, &targets, &needed);
 
@@ -27,11 +27,11 @@ int main(int argc, char* argv[]) {
 
     my_perceptron_t P = {.theta.m = 0, .theta.n = 0};
 
-    my_perceptron_create(features.n, targets.n, my_Perceptron_calcErrorMSE, my_Perceptron_GradTheta, my_Perceptron_GradBias, 1, &P);
+    my_perceptron_create(features.n, targets.n, my_Perceptron_calcErrorMSE, my_perceptron_grad_theta, my_perceptron_grad_bias, 1, &P);
     my_Perceptron_Print(1, &P);
 
     printf("Error:%f\n", P.errorFunc(&P, &features, &targets));
-    my_Perceptron_Predict(&P, &features, &prediction);
+    my_perceptron_predict(&P, &features, &prediction);
     my_Matrix_Print(1, &prediction);
 
     my_Perceptron_Train(&P, &features, &targets, 0.001, 100000, 0.00000001);
@@ -39,14 +39,14 @@ int main(int argc, char* argv[]) {
     printf("Training completed!\n");
 
     printf("Error:%f\n", P.errorFunc(&P, &features, &targets));
-    my_Perceptron_Predict(&P, &features, &prediction);
+    my_perceptron_predict(&P, &features, &prediction);
     my_Matrix_Print(1, &prediction);
 
     my_Perceptron_Print(1, &P);
 
     my_perceptron_free(1, &P);
 
-    my_Matrix_Free(3, &features, &targets, &prediction);
+    my_matrix_free(3, &features, &targets, &prediction);
 
     return 0;
 }
