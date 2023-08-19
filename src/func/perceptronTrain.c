@@ -11,9 +11,9 @@ void my_Perceptron_Train(my_perceptron_t *P, my_Matrix *inputs, my_Matrix *targe
     for(i=0; i<stepsN; i++) {
         if(P->errorFunc(P, inputs, targets) < treshold) break;
         P->gradThetaFunc(P, inputs, targets, &GradTheta);
-    
+
         my_Matrix_MultiplyByScalar(&GradTheta, -1 * alpha, &GradThetaAlpha);
- 
+
         gradBias = P->gradBiasFunc(P, inputs, targets);
         gradBias *= alpha;
 

@@ -5,27 +5,31 @@
 
 typedef struct my_perceptron my_perceptron_t;
 
-typedef double (*ErrorTemplate)(my_perceptron_t *, my_matrix_t *, \
+typedef double (*error_template)(my_perceptron_t *, my_matrix_t *, \
                                     my_matrix_t *);
-typedef void (*GradThetaTemplate)(my_perceptron_t *, my_matrix_t *, \
+typedef void (*grad_theta_template)(my_perceptron_t *, my_matrix_t *, \
                     my_matrix_t *, my_matrix_t *);
-typedef double (*GradBiasTemplate)(my_perceptron_t *, my_matrix_t *, \
+typedef double (*grad_bias_template)(my_perceptron_t *, my_matrix_t *, \
                                     my_matrix_t *);
 
 typedef struct my_perceptron {
-    ErrorTemplate errorFunc;
-    GradThetaTemplate gradThetaFunc;
-    GradBiasTemplate gradBiasFunc;
+    my_percep_funcs_t funcs;
     my_matrix_t theta;
     double bias;
     uint16_t inputs_size;
     uint16_t outputs_size;
 } my_perceptron_t;
 
+typedef struct my_params {
+    double alpha;
+    uint16_t iterations;
+    double threshold;
+} my_params_t;
+
 typedef struct my_percep_funcs {
-    ErrorTemplate errorFunc;
-    GradThetaTemplate gradThetaFunc;
-    GradBiasTemplate gradBiasFunc;
+    error_template error_func;
+    grad_theta_template grad_theta_func;
+    grad_bias_template grad_bias_func;
 } my_percep_funcs_t;
 
 void my_perceptron_create(my_percep_funcs_t *funcs, \

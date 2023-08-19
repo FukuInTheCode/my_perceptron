@@ -1,6 +1,6 @@
 #include "../../includes/my.h"
 
-double __abs(double x) {
+static double __abs(double x) {
     return my_abs(x);
 }
 
