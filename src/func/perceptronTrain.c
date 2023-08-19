@@ -1,10 +1,10 @@
 #include "../../includes/my.h"
 
-void my_Perceptron_Train(my_perceptron_t *P, my_Matrix *inputs, my_Matrix *targets, const
+void my_Perceptron_Train(my_perceptron_t *P, my_matrix_t *inputs, my_matrix_t *targets, const
  double alpha, const unsigned int stepsN, const double treshold) {
-    my_Matrix GradTheta = {.m=0, .n=0};
-    my_Matrix GradThetaAlpha = {.m=0, .n=0};
-    my_Matrix newTheta = {.m=0, .n=0};
+    my_matrix_t GradTheta = {.m=0, .n=0};
+    my_matrix_t GradThetaAlpha = {.m=0, .n=0};
+    my_matrix_t newTheta = {.m=0, .n=0};
     double gradBias;
 
     unsigned int i;

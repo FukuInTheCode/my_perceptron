@@ -3,10 +3,10 @@
 int main(int argc, char* argv[]) {
     srand(time(NULL));
 
-    my_Matrix features = {.m = 0, .n =0};
-    my_Matrix targets = {.m = 0, .n =0};
-    my_Matrix prediction = {.m = 0, .n =0};
-    my_Matrix needed = {.m = 0, .n =0};
+    my_matrix_t features = {.m = 0, .n =0};
+    my_matrix_t targets = {.m = 0, .n =0};
+    my_matrix_t prediction = {.m = 0, .n =0};
+    my_matrix_t needed = {.m = 0, .n =0};
 
     my_Matrix_Create(25, 2, 1, &features);
     my_Matrix_Create(25, 1, 1, &targets);
