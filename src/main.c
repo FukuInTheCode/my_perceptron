@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
     my_perceptron_predict(&P, &features, &prediction);
     my_Matrix_Print(1, &prediction);
 
-    my_Perceptron_Train(&P, &features, &targets, 0.001, 100000, 0.00000001);
+    my_perceptron_train(&P, &features, &targets, 0.001, 100000, 0.00000001);
     
     printf("Training completed!\n");
 

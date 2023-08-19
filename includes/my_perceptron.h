@@ -40,8 +40,11 @@ void my_perceptron_predict(my_perceptron_t *P, my_matrix_t *inputs, \
                                 my_matrix_t *predictions);
 double my_perceptron_calcerror_mse(my_perceptron_t *P, my_matrix_t *inputs, \
                                         my_matrix_t *targets);
-void my_perceptron_grad_theta(my_perceptron_t *P, my_matrix_t *inputs, my_matrix_t *targets, my_matrix_t *result);
-void my_Perceptron_Train(my_perceptron_t *P, my_matrix_t *inputs, my_matrix_t *targets, const double alpha, const unsigned int stepsN, const double treshold);
-double my_perceptron_grad_bias(my_perceptron_t *P, my_matrix_t *inputs, my_matrix_t *targets);
+void my_perceptron_grad_theta(my_perceptron_t *P, my_matrix_t *inputs, \
+                    my_matrix_t *targets, my_matrix_t *result);
+void my_perceptron_train(my_perceptron_t *P, my_matrix_t *inputs, \
+                my_matrix_t *targets, my_params_t *hparams);
+double my_perceptron_grad_bias(my_perceptron_t *P, my_matrix_t *inputs, \
+                        my_matrix_t *targets);
 double my_perceptron_calcerror_l1(my_perceptron_t *P, my_matrix_t *inputs, \
                                     my_matrix_t *targets);
