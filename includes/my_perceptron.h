@@ -12,6 +12,12 @@ typedef void (*grad_theta_template)(my_perceptron_t *, my_matrix_t *, \
 typedef double (*grad_bias_template)(my_perceptron_t *, my_matrix_t *, \
                                     my_matrix_t *);
 
+typedef struct my_percep_funcs {
+    error_template error_func;
+    grad_theta_template grad_theta_func;
+    grad_bias_template grad_bias_func;
+} my_percep_funcs_t;
+
 typedef struct my_perceptron {
     my_percep_funcs_t funcs;
     my_matrix_t theta;
@@ -26,11 +32,6 @@ typedef struct my_params {
     double threshold;
 } my_params_t;
 
-typedef struct my_percep_funcs {
-    error_template error_func;
-    grad_theta_template grad_theta_func;
-    grad_bias_template grad_bias_func;
-} my_percep_funcs_t;
 
 void my_perceptron_create(my_percep_funcs_t *funcs, \
             const unsigned int count, ...);
